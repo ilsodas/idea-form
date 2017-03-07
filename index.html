@@ -8,6 +8,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
         <link rel="stylesheet" href="css/bootstrap.min.css">
+        <link rel="stylesheet" href="css/override.css">
         <style>
             body {
                 padding-top: 50px;
@@ -45,11 +46,67 @@
             <img src="https://cdn1.iconfinder.com/data/icons/softwaredemo/PNG/256x256/Pencil3.png" class="img-responsive center-block" alt="">
           </div>
           <div class="col-md-8">
-            something
+            <div class="container">
+            	<div class="row">
+                <!-- content goes here -->
+                <!-- begin form here -->
+          			<form enctype="multipart/form-data">
+                  <div class="form-group">
+                    <label for="IdeaTitle">Idea title</label>
+                    <input type="text" class="form-control" id="IdeaTitle" placeholder="Please enter your idea's title">
+                  </div>
+                  <div class="form-group">
+                    <label for="Email">Email address</label>
+                    <input type="email" class="form-control" id="Email" placeholder="Please enter your email">
+                  </div>
+                  <div class="form-group">
+                    <label class="control-label" for="rolename">Idea category</label>
+                      <div>
+                          <select id="MultiSelect" class="multiselect-ui form-control" multiple="multiple">
+                              <option value="batch">Batch (Windows/Dos)</option>
+                              <option value="boomerang">Boomerang</option>
+                              <option value="cache">Caché ObjectScript</option>
+                              <option value="coffeescript">CoffeeScript</option>
+                              <option value="constraint">Constraint Handling Rules</option>
+                              <option value="dataflex">DataFlex</option>
+                              <option value="delphi">Delphi</option>
+                              <option value="emerald">Emerald</option>
+                          </select>
+                      </div>
+                  </div>
+                  <div class="form-group">
+                    <label for="Image">Idea image(s)</label>
+                    <input type="file" accept=".jpg, .png, .gif" id="Image" multiple="multiple">
+                    <p class="help-block">Please upload images here, allowed extension jpg, png, gif only.</p>
+                  </div>
+                  <div class="form-group">
+                    <label for="Radio">Would you want your idea to be kept: </label>
+                    <div class="radio radio-primary">
+                       <input type="radio" name="Radio" id="RadioPrivate" value="Private">
+                       <label for="RadioPrivate">
+                           Private
+                       </label>
+                    </div>
+                   <div class="radio radio-primary">
+                       <input type="radio" name="Radio" id="RadioPublic" value="Public">
+                       <label for="RadioPublic">
+                           Public
+                       </label>
+                   </div>
+                  </div>
+                  <div class="checkbox">
+                    <label>
+                      <input type="checkbox"> Have you read the terms and conditions? Do you accept the terms
+                    </label>
+                  </div>
+                  <button type="submit" class="btn btn-default">Submit</button>
+                </form>
+                <!-- end form here -->
+            	</div>
+            </div>
           </div>
         </div>
-        <p>Copy here.</p>
-      </div>
+       </div>
     </div>
 
     <div class="container">
@@ -60,10 +117,17 @@
     </div>
     <!-- /container -->
     <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.js"></script>
-        <script>window.jQuery || document.write('<script src="js/vendor/jquery-1.11.2.js"><\/script>')</script>
+    <script>window.jQuery || document.write('<script src="js/vendor/jquery-1.11.2.js"><\/script>')</script>
+    <script src="js/vendor/bootstrap.min.js"></script>
+    <script src="js/vendor/select.js"></script>
+    <script src="js/main.js"></script>
 
-        <script src="js/vendor/bootstrap.min.js"></script>
-
-        <script src="js/main.js"></script>
+    <script type="text/javascript">
+      $(function() {
+          $('.multiselect-ui').multiselect({
+              includeSelectAllOption: true
+          });
+      });
+    </script>
     </body>
 </html>
