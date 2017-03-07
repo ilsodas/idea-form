@@ -1,5 +1,9 @@
 /* Main CSS here*/
-* {
-  color: red; }
+nav .navbar-brand {
+  text-transform: uppercase; }
+nav a {
+  color: #fff; }
+nav:hover {
+  color: #ccc; }
 
 /*# sourceMappingURL=main.css.map */
