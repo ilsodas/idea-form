@@ -5,3 +5,17 @@ nav{
     text-transform: uppercase;
   }
 }
+
+.required{
+  &:after{
+    content: '*';
+    color: red;
+  }
+}
+
+.ErrorMessage{
+ background-color:#FFDFDF;
+ color:red;
+ font-style: italic;
+ font-size: 10px;
+}

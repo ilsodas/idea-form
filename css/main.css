@@ -1,9 +1,15 @@
 /* Main CSS here*/
 nav .navbar-brand {
   text-transform: uppercase; }
-nav a {
-  color: #fff; }
-nav:hover {
-  color: #ccc; }
+
+.required:after {
+  content: '*';
+  color: red; }
+
+.ErrorMessage {
+  background-color: #FFDFDF;
+  color: red;
+  font-style: italic;
+  font-size: 10px; }
 
 /*# sourceMappingURL=main.css.map */
