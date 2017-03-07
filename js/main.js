@@ -101,7 +101,7 @@ $(document).ready(function(){
                 },
                 type: 'post',
                 success: function(data) {
-                    var message = 'Idea '+data.IdeaTitle+'. Your message was sent and received.';
+                    var message = 'Idea '+data.IdeaTitle+'. Your message was sent.';
                     $('#Message').html(message);
                     $('#Message').css('display', 'block');
                 },
@@ -117,7 +117,7 @@ $(document).ready(function(){
 });
 
 $.empty_field_validation = function(field_value) {
-    if (field_value.trim() == '') return false;
+    if (field_value.trim() === '') return false;
     return true;
 }
 
