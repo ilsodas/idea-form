@@ -90,25 +90,28 @@ $(document).ready(function(){
 			errors = false;
         }
     });
+
 	$('#IdeaCaptureForm').submit(function(event) {
 		event.preventDefault();
 		 $('.required').parent().find('.input').trigger('blur');
         if (!errors)
+
             $.ajax({
                 url: 'https://httpbin.org/post',
-                data: {
-                    json: JSON.stringify($(this).serializeObject())
-                },
-                type: 'post',
-                success: function(data) {
-                    var message = 'Idea '+data.IdeaTitle+'. Your message was sent.';
-                    $('#Message').html(message);
-                    $('#Message').css('display', 'block');
+                type : "POST",
+                dataType : "json",
+                contentType : "application/json",
+                data : $("#IdeaCaptureForm").serialize(),
+                success : function(data) {
+                  var message = 'Idea '+data.IdeaTitle+'. Your message was sent.';
+                  $('#Message').html(message);
+                  $('#Message').css('display', 'block');
+                  alert("It works!!");
                 },
                 error: function() {
-                    var message = 'Message not sent. Please try and re-send';
-                    $('#Message').html(message);
-                    $('#Message').css('display', 'block');
+                  var message = 'Message not sent. Please try and re-send';
+                  $('#Message').html(message);
+                  $('#Message').css('display', 'block');
                 }
             });
 		else
@@ -125,19 +128,3 @@ $.EmailValidate = function(Email) {
     var regex = /^([a-zA-Z0-9_.+-])+\@(([a-zA-Z0-9-])+\.)+([a-zA-Z0-9]{2,4})+$/;
     return regex.test(Email);
 }
-$.fn.serializeObject = function()
-{
-   var o = {};
-   var a = this.serializeArray();
-   $.each(a, function() {
-       if (o[this.IdeaTitle]) {
-           if (!o[this.IdeaTitle].push) {
-               o[this.IdeaTitle] = [o[this.IdeaTitle]];
-           }
-           o[this.IdeaTitle].push(this.value || '');
-       } else {
-           o[this.IdeaTitle] = this.value || '';
-       }
-   });
-   return o;
-};
