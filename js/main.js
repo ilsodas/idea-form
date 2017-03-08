@@ -103,10 +103,10 @@ $(document).ready(function(){
                 contentType : "application/json",
                 data : $("#IdeaCaptureForm").serialize(),
                 success : function(data) {
-                  var message = 'Idea '+data.IdeaTitle+'. Your message was sent.';
+                  var message = 'Your message was sent.';
                   $('#Message').html(message);
                   $('#Message').css('display', 'block');
-                  alert("It works!!");
+                  alert("Here is your idea " + data);
                 },
                 error: function() {
                   var message = 'Message not sent. Please try and re-send';
